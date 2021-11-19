@@ -1,0 +1,22 @@
+{
+  "name": "angular-poke-grid",
+  "private": true,
+  "version": "0.0.0",
+  "description": "an angular-seed based app showing a grid with ag-grid",
+  "repository": "https://github.com/madeusblack/angular-poke-grid",
+  "license": "MIT",
+  "dependencies": {
+    "ag-grid-community": "^26.2.0",
+    "angular": "^1.5.11",
+    "angular-loader": "^1.5.11",
+    "angular-route": "^1.5.11",
+    "html5-boilerplate": "0.0.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+  }
+}
