@@ -64,6 +64,11 @@
     "minimist" "^1.1.0"
     "url-join" "^2.0.5"
 
+"eslint-plugin-angular@^4.1.0":
+  "integrity" "sha512-dacledMPxVOZA3T0xcYFuvrMCy5dHxg0ZTMWUaHqSBQef3/XLyXJ9s1LNj0NikJ/dYx6OhqlnnNpKmrJhEUB+Q=="
+  "resolved" "https://registry.npmjs.org/eslint-plugin-angular/-/eslint-plugin-angular-4.1.0.tgz"
+  "version" "4.1.0"
+
 "eventemitter3@^4.0.0":
   "integrity" "sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw=="
   "resolved" "https://registry.npmjs.org/eventemitter3/-/eventemitter3-4.0.7.tgz"

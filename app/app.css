@@ -36,10 +36,14 @@
   background-color: #80cbc4;
 }
 
+
 .container{
   height: 600px;
   width: 100vw;
   display: flex;
   justify-content: center;
   
+}
+.pokeImg{
+  height: 100%;
 }

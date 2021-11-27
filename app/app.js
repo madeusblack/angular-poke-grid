@@ -7,9 +7,9 @@ module.controller("pokecontroller", function($scope) {
     //definicion de funcion que otorga una clase de css en base a si la o Columna es par o no
     const pokeClass = (e,columnAltColor) => {
       if(!columnAltColor){
-        return e.rowIndex%2 === 0 ? 'pokeA' : 'pokeB'
+        return e.rowIndex%2 === 0 ? 'pokeA pokeCell' : 'pokeB pokeCell'
       }else{
-        return e.rowIndex%2 === 0 ? 'pokeC' : 'pokeD'
+        return e.rowIndex%2 === 0 ? 'pokeC pokeCell' : 'pokeD pokeCell'
       }
       
     }
@@ -28,6 +28,22 @@ module.controller("pokecontroller", function($scope) {
       resizable: true,
       sortable: true,
     }
+
+    /* funcion encargada de obtener el numero del pokemon de la fila 
+    (rowActualData.data.number) y hacer la consulta a la pokeapi
+    con este numero para obtener una imagen y presentarla como imagen en la columna Image
+    */
+    const getpokeImageFormatter = () => {
+      const pokeImageFormatter = (rowActualData) => {
+        console.log(rowActualData.data.number)
+        const pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${rowActualData.data.number}.png`
+        const img = `<img class='pokeImg' src=${pokeImg}>`
+        return img
+      }
+      return pokeImageFormatter;
+  }
+  
+
     /*definicion manual de las columnas disponibles 
     estan cuentan multiples opciones para los estilos pudiendo ser una especie de 
     "inline" con cellStyle, otra opcion es definir manual mente una clase y la 
@@ -38,6 +54,8 @@ module.controller("pokecontroller", function($scope) {
     ademas se el control manual de el ancho para evitar un exceso de ancho al renderizar la
     grilla expandiendo todas las celdas
     */
+
+
     const columnDefs = [
         {
           headerName: "#",
@@ -46,6 +64,14 @@ module.controller("pokecontroller", function($scope) {
           cellStyle: {'background-color': '#b3e5fc'},
           minWidth: 50,
           maxWidth: 90,
+        },
+        {
+          headerName: "Image",
+          field: "Image",
+          cellRenderer: 'pokeImageFormatter',
+          cellClass: (e) => pokeClass(e,true),
+          minWidth: 90,
+          maxWidth: 95,
         },
         {
           headerName: "Name",
@@ -138,6 +164,7 @@ module.controller("pokecontroller", function($scope) {
           minWidth: 120,
           maxWidth: 140,
         },
+
         
     ];
     /*se añaden las opciones de configuracion al objeto gridOptions se dejó en blanco
@@ -147,6 +174,9 @@ module.controller("pokecontroller", function($scope) {
         columnDefs: columnDefs,
         rowData:  [],
         defaultColDef:defaultColDef,
+        components:{
+          pokeImageFormatter:getpokeImageFormatter()
+      }
     };
 
 });
